@@ -10,5 +10,3 @@ print(result_arr)
 for i in result_arr:
     result_sum += i
 print(round(result_sum, 2))
-
-
