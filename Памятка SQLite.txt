@@ -1,0 +1,42 @@
+# https://habr.com/ru/post/321510/
+
+import sqlite3
+
+conn = sqlite3.connect('students.db')
+cursor = conn.cursor()
+
+# ПОКАЗАТЬ ВСЕХ СОТРУДНИКОВ
+cursor.execute("select * from students")
+results = cursor.fetchall()
+print(results)
+
+# ПОИСК ЗАПИСИ
+surname = 'РРІР°РЅРѕРІ'
+cursor.execute(f"select * from students where surname like '%{surname}%'")
+results = cursor.fetchall()
+print(results)
+
+# ДОБАВИТЬ СОТРУДНИКА
+name = 'РЎС‚РµРїР°РЅ'
+surname = 'РЎС‚РµРїР°РЅРѕРІ'
+phone = 45648
+description = 'РРЅР¶РµРЅРµСЂ'
+cursor.execute(
+    f"insert into students (name, surname, phone, description) "
+    f"values ('{name}', '{surname}', {phone}, '{description}')")
+conn.commit()
+
+# УДАЛИТЬ СОТРУДНИКА
+id = 5
+cursor.execute(
+    f"delete from students where id={id}"
+)
+conn.commit()
+
+# ОБНОВИТЬ ДАННЫЕ СОТРУДНИКА
+id = 3
+cursor.execute(
+    f"update students set name='Р®СЂРёР№' where id={id}"
+)
+conn.commit()
+conn.close()
