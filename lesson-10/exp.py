@@ -14,7 +14,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-TOKEN = '5296441889:AAFE9v_lRPEjxdn0A-xDsd0TDPccCKAV1QA'
+TOKEN = '5445736222:AAG8IVtzIo4u7LUGQGZpmNZeSadKH0HjnjE'
 
 candy = 0
 
@@ -50,7 +50,6 @@ def get_candy(update, context):
         update.message.reply_text("Введите число больше 28")
         return 1
     return 2
-    
 
 
 def user_hod(update, context):
